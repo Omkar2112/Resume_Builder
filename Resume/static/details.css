@@ -1,0 +1,129 @@
+
+/* Back button styles */
+.back-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}
+
+
+/* Container styles */
+.container {
+    font-family: Arial, sans-serif;
+    max-width: 800px; /* Decreased max-width */
+    margin: 0 auto;
+    padding: 0 10px; /* Decreased padding */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Header styles */
+.header {
+    background-color: #f7ab30;
+    color: #000000;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+}
+
+/* Profile name styles */
+.profile-name {
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+/* Contact info styles */
+.contact-info {
+    margin-left: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+/* Profile image styles */
+.profile-image {
+    text-align: right;
+    margin-top: -10px;
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile details styles */
+.profile-details {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.profile-details h2 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.profile-details p {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+/* Education and projects styles */
+.education, .projects {
+    margin-top: 20px;
+}
+
+.education h2, .projects h2 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.education ul, .projects ul {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.education li, .projects li {
+    list-style: none;
+    padding-left: 20px;
+    position: relative;
+}
+
+.education li::before, .projects li::before {
+    content: "\f05a";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000000;
+}
+
+.projects li::before {
+    content: "\f0a1";
+}

@@ -1,0 +1,204 @@
+/* Resetting Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background:  rgba(255, 255, 255, 0.78);
+}
+
+header {
+    background: #a200ff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 20px;
+  
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Container Styling */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(146, 142, 142, 0.21);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease; /* Add fade-in animation */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+/* Input and Textarea Styling */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #6A0DAD;
+}
+
+/* Button Styling with Animation */
+.btn {
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    background-image: linear-gradient(to right, #6A0DAD, #9019FF);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: pulse 1s infinite alternate;
+    margin-bottom: 40px; /* Add margin between buttons */
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.btn:hover {
+    background-color: #8E2DE2;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Page Number Styling */
+.page-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    background-color: #6A0DAD;
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+/* Styles for dots */
+.dot {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #00ff1e;
+    cursor: pointer;
+    animation: slideLeft 2s ease infinite;
+}
+
+.dot:nth-child(1) {
+    top: 20px;
+    left: 10px;
+    background-color: #ff0000;
+}
+
+.dot:nth-child(3) {
+    top: 20px;
+    left: 40px;
+    background-color: #ddff00;
+}
+.dot:nth-child(5) {
+    top: 20px;
+    left: 70px; /* Adjust left position accordingly */
+    background-color: #250707; /* White color */
+}
+
+
+/* Styles for tooltips */
+.tooltip {
+    position: absolute;
+    top: 90px;
+    left: 600px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: fadeIn 0.5s ease;
+}
+
+
+/* Show tooltip on hover */
+.dot:hover + .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Additional Styling for Enhanced UI/UX */
+input[type="text"]:hover,
+textarea:hover,
+input[type="text"]:focus,
+textarea:focus {
+    box-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
+}
+
+.btn:hover {
+    background-color: #8E2DE2;
+}
+
+label:hover {
+    color: #6A0DAD;
+}
+
+.container:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}

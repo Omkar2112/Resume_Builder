@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Skills</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'project.css' %}">
+    <!-- Include jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        .ui-autocomplete {
+            position: absolute;
+            z-index: 1000;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Skills</h1>
+</header>
+<div class="container">
+    <form action="#" method="post" class="skill-form" autocomplete="off">
+        {% csrf_token %}
+        <div>
+            <label for="skills_names">Skills</label><br>
+            <input type="text" id="skills_names" name="skills_names" required><br><br>
+        </div>
+        <div>
+            <input type="submit" value="Submit" class="btn">
+            <a href="{% url 'home' %}" class="btn btn-secondary back-btn" style="text-decoration: none;">Back</a>
+        </div>
+    </form>
+</div>
+<div class="page-number">04</div>
+
+<div class="dots-container">
+    <div class="dot" id="Skill-dot"></div>
+    <div class="tooltip" id="Skill-tooltip">Page 04 User Skills</div>
+</div>
+
+<script>
+    // Configure autocomplete
+    $(function() {
+        $("#skills_names").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: "{% url 'skill_autocomplete' %}",
+                    type: "GET",
+                    data: {
+                        term: request.term
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 1, // Minimum characters before autocomplete activates
+            delay: 300, // Delay in milliseconds before autocomplete activates
+            autoFocus: true // Automatically focus on the first item in the dropdown
+        });
+    });
+</script>
+</body>
+</html>

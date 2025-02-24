@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'details.css'%}">
+    <!-- Link to any additional CSS files or libraries you may need -->
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+       
+        <!-- Phone and Email on the left side -->
+        <div class="contact-info">
+            <p>Phone: {{ profile.phone }}</p>
+            <p>Email: {{ profile.email }}</p>
+        </div>
+         <!-- Name in the middle of the header -->
+        <h1 class="name">{{ profile.name }}</h1>
+        <!-- Profile image in the right corner -->
+        <div class="profile-image">
+            {% if profile.image %}
+                <img src="{{ profile.image.url }}" alt="Profile Image">
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- About section -->
+    <section class="about">
+        <h2>About You</h2>
+        <p>{{ profile.about_you }}</p>
+    </section>  
+
+    <!-- Divider line -->
+    <hr class="divider">
+
+    <!-- Education section -->
+    <section class="education">
+        <h2>Educations</h2>
+        <ul>
+            {% for education in education %}
+                <!-- Display education details -->
+                <li><strong>Degree:</strong> {{ education.Degree }}</li>
+                <li><strong>Degree College:</strong> {{ education.Degree_College }}</li>
+                <li><strong>Degree Location:</strong> {{ education.Degree_Location }}</li>
+                <li><strong>Master Degree:</strong> {{ education.Master_Degree }}</li>
+                <li><strong>Master Degree College:</strong> {{ education.Master_Degree_College }}</li>
+                <li><strong>Master Degree Location:</strong> {{ education.Master_Degree_Location }}</li>
+                <!-- Include other education fields as needed -->
+            {% empty %}
+                <li>No education records found.</li>
+            {% endfor %}
+        </ul>
+    </section>
+    <hr class="divider">
+    <!-- Project section -->
+    <section class="projects">
+        <h2>Projects</h2>
+        <ul>
+            {% for project in projects %}
+                <!-- Display project details -->
+                <li><strong>Project Name:</strong> {{ project.Project_Name }}</li>
+                <br>
+                <li><strong>Project Details:</strong> {{ project.Project_Details }}</li>
+                <!-- Include other project fields as needed -->
+            {% empty %}
+                <li>No projects found.</li>
+            {% endfor %}
+        </ul>
+        
+    </section>
+    <hr class="divider">
+   <!-- Skill section -->
+   <section class="skills">
+    <h2>Skills</h2>
+    <ul>
+        {% for skill in skills %}
+            <!-- Display skill details -->
+            <li>{{ skill.skill_names }}</li>
+        {% empty %}
+            <li>No skills found.</li>
+        {% endfor %}
+    </ul>
+</section>
+<hr class="divider">
+    <!-- Back button -->
+    <button onclick="goBack()">Back</button>
+    
+    <!-- Download PDF button -->
+    <button onclick="downloadPDF()">Download</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function downloadPDF() {
+            const element = document.querySelector(".container");
+            html2pdf()
+                .from(element)
+                .save("user_details.pdf");
+        }
+    </script>
+    
+    </div>
+    
+</body>
+</html>

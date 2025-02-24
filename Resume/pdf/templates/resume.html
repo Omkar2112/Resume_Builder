@@ -1,0 +1,42 @@
+<doctype heml>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <title>Docunent</title>
+        </head>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2>Personl</h2> 
+                        <p>Name: {{user_porfile.name}}</p>
+                        <p>Mobile No: {{user_porfile.phone}}</p>
+                        <p>Email: {{user_porfile.email}}</p>
+                        <hr>
+                        <h2>About Yourself</h2>
+                        <p>{{user_porfile.about_you}}</p>
+                        <hr>
+                        <h2>Eduation</h2>
+                        <p>Degree: {{user_eduaction.degree}}</p>
+                        <p>Master Degree: {{user_education.master_degree}}</p>
+                        <hr>
+                        <h2>Address</h2>
+                        <p>Location: {{user_porfile.location}}</p>
+                        <hr>
+                        <h2>Projects</h2>
+                        <p> Project 1: {{user_porfile.project1}}</p>
+                        <hr>
+                        <p>Project 2: {{user_porfile.project2}}</p>
+                        <hr>
+                        <h2>Skill</h2>
+                        <p>{{user_porfile.skill}}</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+        </body>
+    </html>   

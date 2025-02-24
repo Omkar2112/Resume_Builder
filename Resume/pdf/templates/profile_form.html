@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'project.css'%}">
+    <title>User Profile Form</title>
+</head>
+<body>
+    <header>
+    <h1>Personal Details</h1>
+</header>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-7 form-container">
+            <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Eg.Jhon Whick"required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Eg.jhon@gmail.com" readonly value="{{ logged_in_username }}">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder= "Eg.9876543234"required>
+            </div>
+            <div class="form-group">
+                <img class="image" src="{{media.url}}" >
+                <label for="image">Photo</label>
+                <input type="file" class="form-control-file" id="image" name="image"required>
+            </div>
+            <div class="form-group">
+                <label for="about_you">About You</label>
+                <textarea class="form-control" id="about_you" name="about_you" placeholder="Write something about you"required></textarea>
+            </div>
+
+            <div class="d-grid gap-2 d-md-block">
+                <button type="submit" class="btn btn-primary">Submit</button>  
+                <a href="{% url 'home' %}" class="btn btn-secondary back-btn" style="text-decoration: none;">Back</a>
+            </div>
+            </form>
+        </div>
+   </div>
+</div>
+<div class="page-number">01</div>
+
+<div class="dots-container">
+    <div class="dot" id ="profile-dot"></div>
+    <div class="tooltip" id="profile-tooltip">Page 01 Personal Details </div>
+
+    <!-- Second dot with tooltip -->
+    <div class="dot" id="education-dot"></div>
+    <div class="tooltip" id="education-tooltip">Page 02 Education Details</div>
+
+    <!-- Third dot with tooltip -->
+    <div class="dot" id="project-dot"></div>
+    <div class="tooltip" id="project-tooltip">Page 03 Project Details</div>
+    
+    <div class="dot" id="Skill-dot"></div>
+    <div class="tooltip" id="Skill-tooltip">Page 04 User Skills </div>
+
+
+</div>
+</body>
+</html>

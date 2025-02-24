@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'project.css' %}"> 
+</head>
+<body>
+    <header>
+        <h1>Project Form</h1>
+    </header>
+    <div class="container">
+        <!-- Project form -->
+        <form action="#" method="post" class="project-form" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="Project_Name">Project Name:</label>
+                <input type="text" class="form-control" id="Project_Name" name="Project_Name" placeholder="Eg.Resume Builder"required>
+            </div>
+            <div class="form-group">
+                <label for="Project_Details">Project Description:</label>
+                <textarea class="form-control" id="Project_Details" name="Project_Details" rows="4" cols="50" placeholder="Eg.Write About Your Project"required></textarea>
+            </div>
+            <input type="submit" value="Submit" class="btn">
+            <a href="{% url 'home' %}" class="btn btn-secondary back-btn" style="text-decoration: none;">Back</a>
+            </div>
+        </form>
+    </div>
+    <div class="page-number">03</div>
+  
+    <div class="dots-container">
+        <!-- Third dot with tooltip -->
+        <div class="dot" id="project-dot"></div>
+        <div class="tooltip" id="project-tooltip">Page 03 Project Details</div>
+
+        <div class="dot" id="Skill-dot"></div>
+        <div class="tooltip" id="Skill-tooltip">Page 04 User Skills</div>
+    </div>
+
+    <!-- User details form -->
+    
+</body>
+</html>

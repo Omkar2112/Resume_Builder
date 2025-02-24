@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education</title>
+<!-- Link to Bootstrap for styling -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'project.css' %}"> 
+</head>
+<body>
+<header>
+    <h1>Education Details</h1>
+</header>
+<div class="container">
+    <form id="degreeForm" method="post" class="degreeForm" autocomplete="off">
+        {% csrf_token %}
+        <div id="degreeFields">
+            <div class="form-group">
+                <label for="Degree">Degree</label>
+                <input type="text" class="form-control" id="Degree" name="Degree" placeholder="B-Tech Information Technology" required>
+            </div>
+            <div class="form-group">
+                <label for="Degree_College">College</label>
+                <input type="text" class="form-control" id="Degree_College" name="Degree_College" placeholder="ADYPU"required>
+            </div>
+            <div class="form-group">
+                <label for="Degree_Location">Degree Location</label>
+                <input type="text" class="form-control" id="Degree_Location" name="Degree_Location" placeholder="America"required>
+            </div>
+            <div class="form-group">
+                <label for="Master_Degree">Master's Degree</label>
+                <input type="text" class="form-control" id="Master_Degree" name="Master_Degree" placeholder="M-Tech Computer Science"required>
+            </div>
+            <div class="form-group">
+                <label for="Master_Degree_College">Master's College</label>
+                <input type="text" class="form-control" id="Master_Degree_College" name="Master_Degree_College" placeholder="MIT"required>
+            </div>
+            <div class="form-group">
+                <label for="Master_Degree_Location">Master's Degree Location</label>
+                <input type="text" class="form-control" id="Master_Degree_Location" name="Master_Degree_Location" placeholder="India"required>
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-block">
+            <button type="button" class="btn btn-primary" onclick="add()">Add</button>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary back-btn" style="text-decoration: none;">Back</a>
+        </div>
+    </form>
+</div>
+
+<script>
+function add() {
+    var degreeFields = document.getElementById("degreeFields");
+    var newDegreeField = `
+    <div class="form-group">
+        <label for="Degree">Degree</label>
+        <input type="text" class="form-control" name="Degree[]" placeholder="B-Tech Information Technology">
+    </div>
+    <div class="form-group">
+        <label for="Degree_College">College</label>
+        <input type="text" class="form-control" name="Degree_College[]" placeholder="ADYPU">
+    </div>
+    <div class="form-group">
+        <label for="Degree_Location">Degree Location</label>
+        <input type="text" class="form-control" name="Degree_Location[]" placeholder="America">
+    </div>
+    <div class="form-group">
+        <label for="Master_Degree">Master's Degree</label>
+        <input type="text" class="form-control" name="Master_Degree[]" placeholder="M-Tech Computer Science">
+    </div>
+    <div class="form-group">
+        <label for="Master_Degree_College">Master's College</label>
+        <input type="text" class="form-control" name="Master_Degree_College[]" placeholder="MIT">
+    </div>
+    <div class="form-group">
+        <label for="Master_Degree_Location">Master's Degree Location</label>
+        <input type="text" class="form-control" name="Master_Degree_Location[]" placeholder="India">
+    </div>`;
+    degreeFields.innerHTML += newDegreeField;
+}
+</script>
+<div class="page-number">02</div>
+<div class="dots-container">
+    <!-- Second dot with tooltip -->
+    <div class="dot" id="education-dot"></div>
+    <div class="tooltip" id="education-tooltip">Page 02 Education Details</div>
+
+    <!-- Third dot with tooltip -->
+    <div class="dot" id="project-dot"></div>
+    <div class="tooltip" id="project-tooltip">Page 03 Project Details</div>
+
+    <div class="dot" id="Skill-dot"></div>
+    <div class="tooltip" id="Skill-tooltip">Page 04 User Skills</div>
+</div>
+</body>
+</html>

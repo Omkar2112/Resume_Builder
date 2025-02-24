@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Signup Page</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'signup.css'%}"> 
+    <!--Stylesheet-->
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password1 = document.getElementById("password1").value;
+            var firstName = document.getElementById("first_name").value.trim(); // Trim any leading or trailing spaces
+            var lastName = document.getElementById("last_name").value.trim();
+
+            // Basic validation for first name and last name
+            if (firstName === "" || lastName === "") {
+                alert("Please enter your first name and last name.");
+                return false;
+            }
+
+            // Email validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Password validation
+            if (password1.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return false;
+            }
+
+            return true; // Form submission will proceed if all validations pass.
+        }
+    </script>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <form action="{% url 'signup' %}" method="post" onsubmit="return validateForm();">
+        {% csrf_token %} 
+        <h3>Signup Here</h3>
+
+        <label for="first_name">First Name</label>
+        <input type="text" placeholder="First Name" name="first_name" id="first_name">
+
+        <label for="last_name">Last Name</label>
+        <input type="text" placeholder="Last Name" name="last_name" id="last_name">
+
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email or Phone" name="email" id="email">
+
+        <label for="password1">Password</label>
+        <input type="password" placeholder="Password" id="password1" name="password1">
+
+        <button type="submit">Sign Up</button>
+       <a href="{% url 'login' %}" >I already have an account</a>
+
+       {% if messages %}
+       {% for message in messages %}
+           <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+       {% endfor %}
+   {% endif %}
+       
+    </form>
+    
+</body>
+</html>
